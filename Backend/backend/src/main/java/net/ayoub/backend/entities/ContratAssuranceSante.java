@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import net.ayoub.backend.enums.NiveauCouverture;
 @Entity
 @DiscriminatorValue("CS")
-@Data  @NoArgsConstructor  @AllArgsConstructor
+@Data @NoArgsConstructor  @AllArgsConstructor
 public class ContratAssuranceSante extends ContratAssurance{
     private NiveauCouverture niveauCouverture;
     private int nbPersonnesCouvertes;
