@@ -33,7 +33,7 @@ public class ContratAssurance {
     @ManyToOne
     private Client client;
 
-    @OneToMany(mappedBy = "ContratAssurance",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "contrat",fetch = FetchType.EAGER)
     private List<Paiment> paiments;
 
 }
