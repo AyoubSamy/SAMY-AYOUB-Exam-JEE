@@ -7,8 +7,11 @@ import lombok.NoArgsConstructor;
 import net.ayoub.backend.enums.StatutContrat;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE" , length = 4)
 @Data @AllArgsConstructor @NoArgsConstructor
 public class ContratAssurance {
     @Id
@@ -20,7 +23,7 @@ public class ContratAssurance {
 
     private StatutContrat statut;
 
-    private LocalDate dateValidation;
+    private Date dateValidation;
     private double montantCotisation;
     private int duree;
     private double tauxCouverture;
@@ -28,7 +31,7 @@ public class ContratAssurance {
     @ManyToOne
     private Client client;
 
-    @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL)
-    private List<Paiement> paiements;
+    @OneToMany(mappedBy = "ContratAssurance",fetch = FetchType.EAGER)
+    private List<Paiment> paiments;
 
 }
